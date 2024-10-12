@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+      </script>
+</head>
+<body>
+    <script type="module">
+        // Make sure to include these imports:
+ import { GoogleGenerativeAI } from "@google/generative-ai";
+const genAI = new GoogleGenerativeAI("AIzaSyB9Far3t4hEF0qoBW7VzfghDAgD7YAsmSY");
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+const prompt = "Write a story about a magic backpack.";
+
+async function run() {
+    
+
+const result = await  model.generateContent(prompt);
+console.log(result.response.text());
+}
+
+run();
+    </script>
+</body>
+</html>

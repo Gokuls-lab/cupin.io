@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width, height=device-height, target-densitydpi=device-dpi">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=Kotta+One&family=Kumbh+Sans:wght@100..900&family=League+Spartan:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Ysabeau+SC:wght@1..1000&display=swap');
+        </style>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+            </style>
+
+
+
+<script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip/dist/jszip.min.js"></script>
+  <script type="module" src="main.js"></script>
+<script src="prompt.js"></script>
+  <script src="main_fuction.js"></script>
+
+    <link rel="stylesheet" href="home.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="menu_bar" id="menu_bar">
+        <div class="menu_top">
+            <h2>Menu</h2>
+            <img src="src/menu.png" class="menu2" onclick="hide_menu()"/>
+        </div>
+<div class="mid" style="margin-top: 5vh;">
+    <span style="
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kotta One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height */
+    
+    color: #AE4BA9;
+    
+    ">Features</span>
+
+<span style="
+margin-top: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Kotta One';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+color: #AE4BA9;
+
+">About us</span>
+</div>
+        <div class="bottom">
+            <span style="color:#B3A2A2;display: flex;align-items: center;justify-content: center;">v1.0.0</span>
+            <div class="update">Check for updates</div>
+        </div>
+    </div>
+
+<script>
+    function hide_menu(){
+        document.getElementById("menu_bar").style.marginLeft="-60%";
+    }
+    function menu(){
+        document.getElementById("menu_bar").style.marginLeft="0%";
+        document.getElementById("menu_bar").style.opacity="1";
+    }
+</script>
+
+    <img src="src/menu.png" class="menu" onclick="menu()"/>
+    <div class="back-name">
+        <span>Cupin</span>
+    </div>
+    <span class="text1">Analyze your relationships</span>
+    <span class="text2">Don’t worry, we can’t see or save your chats. Privacy Policy</span>
+
+    <div id="layout1">
+        <span class="text3">Key features:</span>
+
+        <div class="f">
+        <div><span class="f1">Tone, Sentiment, and Emotional Analysis 🎭</span> <br></div>
+        <div><span class="f1">Timestamped Breakdown ⏳</span> <br></div>
+        <div><span class="f1">Message Highlighting ✨</span> <br></div>
+        <div><span class="f1">Communication Styles and Intent 🗣️</span> <br></div>
+        <div><span class="f1">Emotional Needs and Attachment Styles:" ❤️</span> <br></div>
+        </div>
+
+        <div class="more">
+            <span onclick="window.location.href='features.html'">View more  ></span>
+        </div>
+
+        <div class="upload" onclick="upload_file()">
+            <div class="upbtn"><div class="icon"></div>Upload file</div>
+        </div>
+        <input type="file" name="" id="bt">
+        <pre id="fileContent"></pre>
+    </div>
+
+<div id="loading">
+    <center><div class='demo'>
+        <div class='circle'>
+          <div class='inner'></div>
+        </div>
+        <div class='circle'>
+          <div class='inner'></div>
+        </div>
+        <div class='circle'>
+          <div class='inner'></div>
+        </div>
+        <div class='circle'>
+          <div class='inner'></div>
+        </div>
+        <div class='circle'>
+          <div class='inner'></div>
+        </div>
+      </div>
+<p class="btn-shine">Cupin analysing your chat...</p> 
+</center>     
+</div>
+
+    <div id="layout2">
+        <span class="chat_sum">Chat Summary:</span>
+        <div class="chat_out" id="chat_out">
+            <input id="chat_in" style="color: white;" type="text" name="" id="chat2" placeholder="Ask something...">
+            <img onclick="send()" src="src/send1.png" width="25px" style="margin-top: 15px;position: absolute;right: 25px;"  alt="">
+        </div>
+        <p id="summary"></p>
+        <div class="load" id="load">
+            <div class="load_bar"></div>
+            <div class="load_bar"></div>
+            <div class="load_bar" style="width: 98%;"></div>
+            <div class="load_bar" style="width: 70%;"></div>
+        </div>
+    </div>
+<script>
+//alert(prompt_);
+var f = document.getElementById("bt");
+var con="";
+        f.onchange =function () {
+            document.getElementById("loading").style.display="block";
+    var zip = new JSZip();
+    var fileContentElement = document.getElementById("fileContent");
+    fileContentElement.textContent = ""; // Clear previous content
+
+    zip.loadAsync(this.files[0]) // Load the file as a zip
+        .then(function (zip) {
+            // Find the first .txt file
+            let txtFile = null;
+            zip.forEach(function (relativePath, zipEntry) {
+                if (zipEntry.name.endsWith(".txt")) {
+                    txtFile = zipEntry;
+                }
+            });
+
+            if (txtFile) {
+                // Read the .txt file as text
+                zip.file(txtFile.name).async("text")
+                    .then(function (content) {
+                        // Display the text file content
+                        //fileContentElement.textContent = content;
+                        con=content;
+                        run(prompt_+"\n"+content);
+                    });
+            } else {
+                fileContentElement.textContent = "No .txt file found in the ZIP.";
+            }
+        })
+        .catch(function () {
+            alert("Not a valid zip file");
+        });
+};
+
+
+
+function send(){
+    var query=document.getElementById('chat_in').value;
+    if(query.length>0){
+        document.getElementById("chat_in").value="";
+        document.getElementById("summary").style.display="none";
+        document.getElementById("load").style.display="block";
+        run(prompt_q+query+'\n\nconversation:'+con);
+    }else{
+        document.getElementById("chat_out").style.boxShadow="red 0px 2px 5px";
+        setTimeout(()=>document.getElementById("chat_out").style.boxShadow="",1000);
+    }
+}
+
+function upload_file(){
+    document.getElementById("bt").click();
+}
+
+
+</script>
+<script type="module">
+import { GoogleGenerativeAI } from "@google/generative-ai";
+const genAI = new GoogleGenerativeAI("AIzaSyB9Far3t4hEF0qoBW7VzfghDAgD7YAsmSY");
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+const prompt = "Write a story about a magic backpack.";
+
+async function run(prompt) {
+    
+
+const result = await  model.generateContent(prompt);
+console.log(result.response.text());
+document.getElementById("layout1").style.display="none";
+//document.getElementById("fileContent").textContent= result.response.text();
+//document.getElementById("summary").innerText=result.response.text();
+var res =result.response.text();
+var text = res.replace(/^\* (.*)/gim, '<li>$1</li>');
+text=text.replaceAll("\n","<br>").replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
+
+// Wrap list items in <ul> tags if multiple list items are found
+//if (text.includes('<li>')) {
+//text = text.replace(/(<li>.*<\/li>)/gims, '<ul>$1</ul>');
+//}
+res=text;
+document.getElementById("summary").innerHTML=res.replace(/\*(.*?)\*/g, '$1').replaceAll("##","");
+
+document.getElementById("layout2").style.display="block";
+document.getElementById("summary").style.display="block";
+document.getElementById("loading").style.display="none";
+document.getElementById("load").style.display="none";
+
+}
+window.run=run;
+</script>
+
+<script src="msg.js"></script>
+
+
+
+<iframe id="screen" style="width: 100%;height: 100vh;position: fixed;bottom: 0px;z-index: 10;background-color: white;" src="index.html" frameborder="0"></iframe>
+<script>
+    function screen(){
+        document.getElementById("screen").style.opacity="0";
+        setTimeout(()=>document.getElementById("screen").style.display="none",1000);
+    }
+setTimeout(screen, 2500);
+</script>
+
+</body>
+</html>

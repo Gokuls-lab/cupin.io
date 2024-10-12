@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read ZIP File</title>
+    <script src="https://cdn.jsdelivr.net/npm/jszip/dist/jszip.min.js"></script>
+
+
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+      </script>
+</head>
+<body>
+    <input type="file" id="f">
+    <pre id="fileContent"></pre> <!-- Preformatted text for displaying file content -->
+
+    <script type="module">
+        import { Gemini } from '@google/gemini';
+
+        const gemini = new Gemini({
+            apiKey: 'AIzaSyB9Far3t4hEF0qoBW7VzfghDAgD7YAsmSY'
+        });
+
+        gemini.generateText({
+            prompt: "Tell me a joke"
+        }).then(response => {
+            console.log(response.text);
+        }).catch(error => {
+            console.error(error);
+        });
+    </script>
+
+
+    <script>
+        var f = document.getElementById("f");
+        f.onchange = function () {
+            var zip = new JSZip();
+            var fileContentElement = document.getElementById("fileContent");
+            fileContentElement.textContent = ""; // Clear previous content
+
+            zip.loadAsync(this.files[0]) // Load the file as a zip
+                .then(function (zip) {
+                    // Find the first .txt file
+                    let txtFile = null;
+                    zip.forEach(function (relativePath, zipEntry) {
+                        if (zipEntry.name.endsWith(".txt")) {
+                            txtFile = zipEntry;
+                        }
+                    });
+
+                    if (txtFile) {
+                        // Read the .txt file as text
+                        zip.file(txtFile.name).async("text")
+                            .then(function (content) {
+                                // Display the text file content
+                                fileContentElement.textContent = content;
+                            });
+                    } else {
+                        fileContentElement.textContent = "No .txt file found in the ZIP.";
+                    }
+                })
+                .catch(function () {
+                    alert("Not a valid zip file");
+                });
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+/* iPhone 14 & 15 Pro - 2 */
+
+position: relative;
+width: 393px;
+height: 852px;
+
+background: #FCF6FD;
+
+
+/* Rectangle 4 */
+
+position: absolute;
+width: 127px;
+height: 37px;
+left: calc(50% - 127px/2);
+top: 68px;
+
+background: #F9EDFA;
+border-radius: 10px;
+
+
+/* Cupin */
+
+position: absolute;
+width: 54px;
+height: 24px;
+left: calc(50% - 54px/2 - 5.5px);
+top: 74px;
+
+font-family: 'Kotta One';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+color: #763270;
+
+
+
+/* menu */
+
+position: absolute;
+width: 46px;
+height: 48px;
+left: 15px;
+top: 62px;
+
+background: url(menu.png);
+
+
+/* Analyze your relationships */
+
+position: absolute;
+width: 348px;
+height: 35px;
+left: 15px;
+top: 164px;
+
+font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 35px;
+/* identical to box height */
+
+color: #763270;
+
+
+
+/* Don’t worry, we can’t see or save your chats. Privacy Policy */
+
+position: absolute;
+width: 331px;
+height: 15px;
+left: 15px;
+top: 212px;
+
+font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+color: #AE4BA9;
+
+
+
+/* Rectangle 6 */
+
+position: absolute;
+visibility: hidden;
+width: 346px;
+height: 69px;
+left: 24px;
+top: 751px;
+
+background: #F9EDFA;
+border-radius: 20px;
+
+
+/* Key features: */
+
+position: absolute;
+width: 125px;
+height: 25px;
+left: 16px;
+top: 292px;
+
+font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 25px;
+/* identical to box height */
+
+color: #612E5D;
+
+
+
+/* Group 1 */
+
+position: absolute;
+width: 193px;
+height: 60px;
+left: calc(50% - 193px/2);
+top: calc(50% - 60px/2 + 331px);
+
+
+
+/* Rectangle 5 */
+
+position: absolute;
+width: 193px;
+height: 60px;
+left: 100px;
+top: 727px;
+
+background: #F3DAF4;
+border-radius: 20px;
+
+
+/* upload 1 */
+
+position: absolute;
+width: 38px;
+height: 43px;
+left: 119px;
+top: calc(50% - 43px/2 + 331.5px);
+
+background: url(upload.png);
+
+
+/* Upload file */
+
+position: absolute;
+width: 91px;
+height: 31px;
+left: 172px;
+top: calc(50% - 31px/2 + 331.5px);
+
+font-family: 'Lalezar';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 31px;
+
+color: #763270;
+
+
+
+/* Features */
+
+position: absolute;
+width: 343px;
+height: 39px;
+left: 19px;
+top: 571px;
+
+
+
+/* F Background */
+
+position: absolute;
+width: 343px;
+height: 39px;
+left: 19px;
+top: 571px;
+
+background: #AE4BA9;
+border-radius: 10px;
+
+
+/* Emotional Needs and Attachment Styles:" ❤️ */
+
+position: absolute;
+width: 312px;
+height: 19px;
+left: 34px;
+top: 581px;
+
+font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 19px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+
+/* Features */
+
+position: absolute;
+width: 289px;
+height: 39px;
+left: 19px;
+top: 515px;
+
+
+
+/* F Background */
+
+position: absolute;
+width: 289px;
+height: 39px;
+left: 19px;
+top: 515px;
+
+background: #AE4BA9;
+border-radius: 10px;
+
+
+/* Communication Styles and Intent 🗣️ */
+
+position: absolute;
+width: 253px;
+height: 19px;
+left: 34px;
+top: 525px;
+
+font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 19px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+
+/* Features */
+
+position: absolute;
+width: 198px;
+height: 39px;
+left: 19px;
+top: 459px;
+
+
+
+/* F Background */
+
+position: absolute;
+width: 198px;
+height: 39px;
+left: 19px;
+top: 459px;
+
+background: #AE4BA9;
+border-radius: 10px;
+
+
+/* Message Highlighting ✨ */
+
+position: absolute;
+width: 170px;
+height: 19px;
+left: 34px;
+top: 469px;
+
+font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 19px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+
+/* Features */
+
+position: absolute;
+width: 230px;
+height: 39px;
+left: 16px;
+top: 403px;
+
+
+
+/* F Background */
+
+position: absolute;
+width: 230px;
+height: 39px;
+left: 16px;
+top: 403px;
+
+background: #AE4BA9;
+border-radius: 10px;
+
+
+/* Timestamped Breakdown ⏳ */
+
+position: absolute;
+width: 199px;
+height: 19px;
+left: 34px;
+top: 413px;
+
+font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 19px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+
+/* Features */
+
+position: absolute;
+width: 347px;
+height: 39px;
+left: 16px;
+top: 347px;
+
+
+
+/* F Background */
+
+position: absolute;
+width: 347px;
+height: 39px;
+left: 16px;
+top: 347px;
+
+background: #AE4BA9;
+border-radius: 10px;
+
+
+/* Tone, Sentiment, and Emotional Analysis 🎭 */
+
+position: absolute;
+width: 302px;
+height: 19px;
+left: 34px;
+top: 357px;
+
+font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 19px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+
+/* View more > */
+
+position: absolute;
+width: 98px;
+height: 20px;
+left: calc(50% - 98px/2 + 0.5px);
+top: 651px;
+
+font-family: 'Kumbh Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 20px;
+/* identical to box height */
+
+color: #763270;
+
