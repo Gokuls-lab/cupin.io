@@ -264,17 +264,17 @@ setTimeout(screen, 2500);
 function pageShown(evt){
                 if (evt.persisted) {
                     document.getElementById("screen").style.display="none";
-                    //alert("pageshow event handler called.  The page was just restored from the Page Cache (eg. From the Back button.");
+                    alert("pageshow event handler called.  The page was just restored from the Page Cache (eg. From the Back button.");
                 } else {
-                    //alert("pageshow event handler called for the initial load.  This is the same as the load event.");
+                    alert("pageshow event handler called for the initial load.  This is the same as the load event.");
                 }
             }
 
             function pageHidden(evt){
                 if (evt.persisted) {
-                    //alert("pagehide event handler called.  The page was suspended and placed into the Page Cache.");
+                    alert("pagehide event handler called.  The page was suspended and placed into the Page Cache.");
                 } else {
-                    //alert("pagehide event handler called for page destruction.  This is the same as the unload event.");
+                    alert("pagehide event handler called for page destruction.  This is the same as the unload event.");
                 }
             }
 
