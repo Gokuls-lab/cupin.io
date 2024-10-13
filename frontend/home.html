@@ -249,41 +249,37 @@ window.run=run;
 
 
 
-<iframe id="screen" style="width: 100%;height: 100vh;position: fixed;bottom: 0px;z-index: 10;background-color: white;display:none;" src="index.html" frameborder="0"></iframe>
+<iframe id="screen" style="width: 100%;height: 100vh;position: fixed;bottom: 0px;z-index: 10;background-color: white;" src="index.html" frameborder="0"></iframe>
 <script>
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
     function screen(){
-        document.cookie = "screen=yes";
-        //alert(getCookie("screen")=="yes");
-        //document.getElementById("screen").style.opacity="0";
+        document.getElementById("screen").style.opacity="0";
         setTimeout(()=>document.getElementById("screen").style.display="none",1000);
     }
-        if(getCookie("screen")=="yes"){
-            //alert("finded");
-            document.getElementById("screen").style.display="none";
-            //setTimeout(()=>document.getElementById("screen").style.display="none",1000);
-        }else{
-            //alert("no");
-            document.getElementById("screen").style.display="block";
-            setTimeout(screen, 2500);
+    
+setTimeout(screen, 2500);
 
-        }
 
+
+
+function pageShown(evt){
+                if (evt.persisted) {
+                    document.getElementById("screen").style.display="none";
+                    //alert("pageshow event handler called.  The page was just restored from the Page Cache (eg. From the Back button.");
+                } else {
+                    //alert("pageshow event handler called for the initial load.  This is the same as the load event.");
+                }
+            }
+
+            function pageHidden(evt){
+                if (evt.persisted) {
+                    //alert("pagehide event handler called.  The page was suspended and placed into the Page Cache.");
+                } else {
+                    //alert("pagehide event handler called for page destruction.  This is the same as the unload event.");
+                }
+            }
+
+            window.addEventListener("pageshow", pageShown, false);
+            window.addEventListener("pagehide", pageHidden, false);
 </script>
 
 </body>
