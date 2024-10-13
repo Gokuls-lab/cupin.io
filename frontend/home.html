@@ -249,13 +249,41 @@ window.run=run;
 
 
 
-<iframe id="screen" style="width: 100%;height: 100vh;position: fixed;bottom: 0px;z-index: 10;background-color: white;" src="index.html" frameborder="0"></iframe>
+<iframe id="screen" style="width: 100%;height: 100vh;position: fixed;bottom: 0px;z-index: 10;background-color: white;display:none;" src="index.html" frameborder="0"></iframe>
 <script>
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
     function screen(){
-        document.getElementById("screen").style.opacity="0";
+        document.cookie = "screen=yes";
+        //alert(getCookie("screen")=="yes");
+        //document.getElementById("screen").style.opacity="0";
         setTimeout(()=>document.getElementById("screen").style.display="none",1000);
     }
-setTimeout(screen, 2500);
+        if(getCookie("screen")=="yes"){
+            //alert("finded");
+            document.getElementById("screen").style.display="none";
+            //setTimeout(()=>document.getElementById("screen").style.display="none",1000);
+        }else{
+            //alert("no");
+            document.getElementById("screen").style.display="block";
+            setTimeout(screen, 2500);
+
+        }
+
 </script>
 
 </body>
